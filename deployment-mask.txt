@@ -1,0 +1,21 @@
+aldry: apps/v1
+kind: Deployment
+metadata:
+  name: {application-name}-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {application-name}
+  template:
+    metadata:
+      labels:
+        app: {application-name}
+    spec:
+      containers:
+      - name: {application-name}
+        image: {application-image}
+        ports:
+        - containerPort: {application-ports}

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dream-ms-deployment
+  labels:
+    app: dream-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dream-ms
+  template:
+    metadata:
+      labels:
+        app: dream-ms
+    spec:
+      containers:
+      - name: dream-ms
+        image: winhead/dream-ms:latest
+        ports:
+        - containerPort: 3000
